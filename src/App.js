@@ -1,24 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+// import logo from './logo.svg';
+import "./App.css";
+// import NavBar from "./Components/NavBar";
 
 function App() {
+  const [list, setList] = useState([
+    "mercedes",
+    "benz",
+    "volkswagen",
+    "suzuki",
+    "BMW",
+    "audi",
+    "cadillac",
+    "acura",
+  ]);
+  const [input, setInput] = useState("");
+  const [predictedItem, setPredictedItem] = useState("");
+  const [showList, setShowList] = useState(true);
+
+  const findItem = (e) => {
+    setInput(e.target.value);
+    list.map((ls) => {
+      if (ls.slice(0, input.length) === input) {
+        setPredictedItem(ls);
+        setShowList(false);
+      }
+    });
+  };
+  useEffect(() => {
+    if (predictedItem && input) {
+      setShowList(false);
+    } else {
+      setShowList(true);
+    }
+  }, [predictedItem, input]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* list items  */}
+      <h1>Cars</h1>
+      <br />
+      <div className="list">
+        {/* search bar  */}
+        <div className="input__div">
+          <input value={input} onChange={findItem} type="text" />
+          <i className="fa fa-search"></i>
+        </div>
+        <ul>
+          {showList ? (
+            list.map((ls) => <li>{ls}</li>)
+          ) : (
+            <li>{predictedItem}</li>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }
