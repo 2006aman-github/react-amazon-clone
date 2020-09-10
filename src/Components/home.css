@@ -1,0 +1,12 @@
+.home {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  /* border: 1px solid black; */
+}
+.home__row {
+  display: flex;
+  height: 448px;
+  max-width: 100%;
+  /* background-color: #fff; */
+}

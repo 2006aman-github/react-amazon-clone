@@ -1,0 +1,28 @@
+.checkout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+}
+.checkout__left {
+  flex: 0.75;
+}
+.checkout__left img {
+  width: 100%;
+}
+.checkout__right {
+  flex: 0.25;
+  display: flex;
+  flex-direction: column;
+}
+.checkout__title {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+.basket__items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
