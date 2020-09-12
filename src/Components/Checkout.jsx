@@ -27,7 +27,7 @@ function Checkout() {
                 rating={item.rating}
                 isCartProduct={true}
               />
-              <hr />
+              {/* <hr /> */}
             </>
           ))}
         </div>

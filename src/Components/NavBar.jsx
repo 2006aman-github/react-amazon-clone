@@ -33,10 +33,12 @@ function NavBar() {
             </span>
           </div>
         </Link>
-        <div className="nav__option">
-          <span className="nav__optionLineOne">Returns</span>
-          <span className="nav__optionLineTwo">& Orders</span>
-        </div>
+        <Link to="/orders">
+          <div className="nav__option">
+            <span className="nav__optionLineOne">Returns</span>
+            <span className="nav__optionLineTwo">& Orders</span>
+          </div>
+        </Link>
         <div className="nav__option">
           <span className="nav__optionLineOne">Try</span>
           <span className="nav__optionLineTwo">Prime</span>

@@ -8,6 +8,14 @@ import Checkout from "./Components/Checkout";
 import LoginPage from "./Components/LoginPage";
 import { auth } from "./Firebase";
 import { useStateValue } from "./StateProvider";
+import Payment from "./Components/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import OrdersPage from "./Components/OrdersPage";
+
+const promise = loadStripe(
+  "pk_test_51HQCIxJcxTJtImIbqYHyT0knL6jz058wOeiRt1AgbZ9fYKsA9a2CeOP4GGha4pcATUL0DFAOJHetN3jSGrT5y6ZC006wtQRpqv"
+);
 
 function App() {
   const [{ basket }, dispatch] = useStateValue();
@@ -43,6 +51,16 @@ function App() {
           </Route>
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route path="/payment">
+            <NavBar />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
+          <Route path="/orders">
+            <NavBar />
+            <OrdersPage />
           </Route>
           <Route path="/">
             {/* navbar  */}

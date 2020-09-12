@@ -1,0 +1,15 @@
+.order {
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  width: 75%;
+  margin: auto;
+  display: grid;
+  place-content: center;
+  margin-top: 100px;
+  position: relative;
+}
+.order__id {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}

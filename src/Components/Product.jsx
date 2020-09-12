@@ -33,26 +33,44 @@ function Product({
   };
 
   return (
-    <div className={isCartProduct ? "product  cart__item" : "product"}>
-      <div className="product__header">
-        <p>{ProductName}</p>
-        <small>$</small>
-        <span className="product__price">{ProductPrice}</span>
-        <div className="product__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p>&#11088;</p>
-            ))}
-        </div>
-      </div>
-      <img src={ProductImage} alt="" />
+    <>
       {isCartProduct ? (
-        <button onClick={removeFromBasket}>Delete</button>
+        <div className="cart__product">
+          <img src={ProductImage} alt="" />
+          <div className="cart__product__header">
+            <p>{ProductName}</p>
+            <small>$</small>
+            <span className="product__price">{ProductPrice}</span>
+            <div className="product__rating">
+              {Array(rating)
+                .fill()
+                .map((_, i) => (
+                  <p>&#11088;</p>
+                ))}
+            </div>
+            <button onClick={removeFromBasket}>Remove From Basket</button>
+          </div>
+        </div>
       ) : (
-        <button onClick={addToBasket}>Add to Basket</button>
+        <div className="product">
+          <div className="product__header">
+            <p>{ProductName}</p>
+            <small>$</small>
+            <span className="product__price">{ProductPrice}</span>
+            <div className="product__rating">
+              {Array(rating)
+                .fill()
+                .map((_, i) => (
+                  <p>&#11088;</p>
+                ))}
+            </div>
+          </div>
+          <img src={ProductImage} alt="" />
+
+          <button onClick={addToBasket}>Add to Basket</button>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
