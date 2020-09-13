@@ -1,12 +1,22 @@
 .home {
   display: grid;
   place-items: center;
+  margin-top: -200px;
   width: 100%;
   /* border: 1px solid black; */
 }
 .home__row {
   display: flex;
-  height: 448px;
-  width: 100%;
+  /* flex-direction: column; */
   /* background-color: #fff; */
+}
+
+@media (max-width: 750px) {
+  .home__row {
+    flex-direction: column;
+    /* margin-top: 200px; */
+  }
+  .home {
+    margin-top: 0px;
+  }
 }

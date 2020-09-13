@@ -5,12 +5,18 @@ import { useStateValue } from "../StateProvider";
 import { auth } from "../Firebase";
 
 function NavBar() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user, openSideBar }, dispatch] = useStateValue();
 
   const handleAuth = () => {
     if (user) {
       auth.signOut();
     }
+  };
+  const handleSidebar = () => {
+    dispatch({
+      type: "OPEN_SIDEBAR",
+      openSideBar: openSideBar,
+    });
   };
   console.log(user?.email);
   return (
@@ -21,6 +27,7 @@ function NavBar() {
       <div className="navbar__serach">
         <input type="text" />
         <i className="fa fa-search"></i>
+        <i onClick={handleSidebar} className="fa fa-bars"></i>
       </div>
       <div className="navbar__nav">
         <Link to={user ? "/" : "/login"}>

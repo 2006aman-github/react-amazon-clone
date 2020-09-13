@@ -33,7 +33,7 @@ function Checkout() {
         </div>
       </section>
       <section className="checkout__right">
-        <SubTotal />
+        {basket.length > 0 ? <SubTotal /> : null}
       </section>
     </div>
   );

@@ -1,6 +1,7 @@
 export const initialState = {
   basket: [],
   user: null,
+  openSideBar: false,
 };
 
 export const getBasketTotal = (basket) =>
@@ -35,6 +36,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case "OPEN_SIDEBAR":
+      return {
+        ...state,
+        openSideBar: !action.openSideBar,
       };
 
     default:

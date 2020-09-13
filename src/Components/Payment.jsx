@@ -133,6 +133,7 @@ function Payment() {
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
+              <br />
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (
@@ -141,7 +142,7 @@ function Payment() {
                         Subtotal ({basket.length}
                         {basket.length == 1 ? "item" : "items"}
                         ):
-                        <strong>{value}</strong>
+                        <strong> {value}</strong>
                       </p>
                     </>
                   )}
@@ -149,10 +150,13 @@ function Payment() {
                   value={getBasketTotal(basket)}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"$"}
+                  prefix={"₨ "}
                 />
-                <button disabled={processing || disabled || succeded}>
-                  <span>{processing ? <p>processing</p> : "Buy Now"}</span>
+                <button
+                  className="buy__now__button"
+                  disabled={processing || disabled || succeded}
+                >
+                  <span>{processing ? <p>Processing 🛒</p> : "Buy Now"}</span>
                 </button>
               </div>
             </form>

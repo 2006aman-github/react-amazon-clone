@@ -9,6 +9,7 @@ function Product({
   ProductPrice,
   rating,
   isCartProduct,
+  hideButton,
 }) {
   const [{ basket }, dispatch] = useStateValue();
   const addToBasket = () => {
@@ -38,9 +39,13 @@ function Product({
         <div className="cart__product">
           <img src={ProductImage} alt="" />
           <div className="cart__product__header">
-            <p>{ProductName}</p>
-            <small>$</small>
-            <span className="product__price">{ProductPrice}</span>
+            <p>
+              <h4>{ProductName}</h4>
+            </p>
+            <small>₨</small>
+            <span className="product__price">
+              <strong>{ProductPrice}</strong>
+            </span>
             <div className="product__rating">
               {Array(rating)
                 .fill()
@@ -48,14 +53,16 @@ function Product({
                   <p>&#11088;</p>
                 ))}
             </div>
-            <button onClick={removeFromBasket}>Remove From Basket</button>
+            {hideButton ? null : (
+              <button onClick={removeFromBasket}>Remove From Basket</button>
+            )}
           </div>
         </div>
       ) : (
         <div className="product">
           <div className="product__header">
             <p>{ProductName}</p>
-            <small>$</small>
+            <small>₨</small>
             <span className="product__price">{ProductPrice}</span>
             <div className="product__rating">
               {Array(rating)
