@@ -21,7 +21,6 @@ function Payment() {
   const elements = useElements();
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
-  const [totalPrice, setTotalPrice] = useState();
   const [succeded, setSucceded] = useState(false);
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState(true);
@@ -30,12 +29,6 @@ function Payment() {
   //   console.log(basket);
 
   useEffect(() => {
-    // basket price calculation
-    let p = 0;
-    basket.map((item) => {
-      p += parseFloat(item.price);
-    });
-    setTotalPrice(p);
     // generate the special stripe secret which allows us to charge a customer
     const getClientSecret = async () => {
       const response = await axios({
@@ -127,41 +120,51 @@ function Payment() {
           </div>
         </div>
         <div className="payment__section">
-          <div className="payment__title">
-            <h3>Payment Method</h3>
-          </div>
-          <div className="payment__details">
-            <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
-              <br />
-              <div className="payment__priceContainer">
-                <CurrencyFormat
-                  renderText={(value) => (
-                    <>
-                      <p>
-                        Subtotal ({basket.length}
-                        {basket.length == 1 ? "item" : "items"}
-                        ):
-                        <strong> {value}</strong>
-                      </p>
-                    </>
-                  )}
-                  decimalScale={2}
-                  value={getBasketTotal(basket)}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"₨ "}
-                />
-                <button
-                  className="buy__now__button"
-                  disabled={processing || disabled || succeded}
-                >
-                  <span>{processing ? <p>Processing 🛒</p> : "Buy Now"}</span>
-                </button>
+          {user ? (
+            <>
+              <div className="payment__title">
+                <h3>Payment Method</h3>
               </div>
-            </form>
-            {error && <div>{error}</div>}
-          </div>
+              <div className="payment__details">
+                <form onSubmit={handleSubmit}>
+                  <CardElement onChange={handleChange} />
+                  <br />
+                  <div className="payment__priceContainer">
+                    <CurrencyFormat
+                      renderText={(value) => (
+                        <>
+                          <p>
+                            Subtotal ({basket.length}
+                            {basket.length == 1 ? "item" : "items"}
+                            ):
+                            <strong> {value}</strong>
+                          </p>
+                        </>
+                      )}
+                      decimalScale={2}
+                      value={getBasketTotal(basket)}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"₨ "}
+                    />
+                    <button
+                      className="buy__now__button"
+                      disabled={processing || disabled || succeded}
+                    >
+                      <span>
+                        {processing ? <p>Processing 🛒</p> : "Buy Now"}
+                      </span>
+                    </button>
+                  </div>
+                </form>
+                {error && <div>{error}</div>}
+              </div>
+            </>
+          ) : (
+            <Link to="/login">
+              <button>Sign In To Continue</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

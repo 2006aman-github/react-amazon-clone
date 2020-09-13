@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { getBasketTotal } from "../reducer";
 
 function SubTotal() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   const [totalPrice, setTotalPrice] = useState();
   //   console.log(basket);
 
@@ -34,9 +34,15 @@ function SubTotal() {
         thousandSeparator={true}
         prefix={"Rs "}
       />
-      <Link to="/payment">
-        <button>Proceed to Buy</button>
-      </Link>
+      {user ? (
+        <Link to={"/payment"}>
+          <button>Proceed to Buy</button>
+        </Link>
+      ) : (
+        <Link to="/login">
+          <button>Sign In To Continue</button>
+        </Link>
+      )}
     </div>
   );
 }

@@ -90,8 +90,15 @@ a {
   text-decoration: none;
   color: #fff;
 }
-.fa-bars {
+.fa-bars,
+.top_nav div {
   visibility: hidden;
+  display: none;
+}
+.top_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 /* media queries  */
 @media (max-width: 750px) {
@@ -113,9 +120,25 @@ a {
     flex-direction: column;
     align-items: start;
   }
+  .top_nav div {
+    display: flex;
+    visibility: visible;
+  }
   .fa-bars {
     visibility: visible;
     color: #fff;
     margin-left: 15px;
+    display: flex;
+  }
+  .top_nav {
+    width: 98%;
+  }
+  .top_nav div i {
+    margin-right: 10px;
+  }
+  .top_nav div {
+    display: flex;
+    align-items: center;
+    /* flex: 1; */
   }
 }

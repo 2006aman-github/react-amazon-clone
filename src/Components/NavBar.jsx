@@ -3,6 +3,7 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../Firebase";
+import { getBasketTotal } from "../reducer";
 
 function NavBar() {
   const [{ basket, user, openSideBar }, dispatch] = useStateValue();
@@ -21,9 +22,17 @@ function NavBar() {
   console.log(user?.email);
   return (
     <div className="navbar">
-      <Link to="/">
-        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
-      </Link>
+      <div className="top_nav" style={{ color: "white" }}>
+        <Link to="/">
+          <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
+        </Link>
+        <Link to="/checkout">
+          <div>
+            <i className="fa fa-shopping-basket"></i>
+            {basket.length}
+          </div>
+        </Link>
+      </div>
       <div className="navbar__serach">
         <input type="text" />
         <i className="fa fa-search"></i>

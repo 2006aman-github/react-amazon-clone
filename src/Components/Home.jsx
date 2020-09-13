@@ -61,7 +61,7 @@ function Home() {
       <div className="home__row">
         <Product
           ProductName={
-            "Microsoft Surface Pro 7 VDV-00015 12.3 inch Touchscreen 2-in-1 Laptop (10th Gen Intel Core i5/8GB/128GB SSD/Windows 10 Home/Intel Iris Plus Graphics), Platinum"
+            "Microsoft Surface Pro 7 VDV-00015 12.3 inch Touchscreen 2-in-1 Laptop, Platinum"
           }
           isCartProduct={false}
           rating={5}
@@ -78,6 +78,61 @@ function Home() {
           isCartProduct={false}
           ProductPrice={"7999.00 "}
           rating={3}
+        />
+        <Product
+          ProductName={
+            "ZEBRONICS Gaming Multimedia USB Keyboard & USB Mouse Combo -Transformer"
+          }
+          ProductImage={
+            "https://images-na.ssl-images-amazon.com/images/I/61l3aUqHRVL._SL1000_.jpg"
+          }
+          isCartProduct={false}
+          ProductPrice={"1299.00"}
+          rating={4}
+        />
+        <Product
+          ProductName={"Allen Solly Men's Polo"}
+          ProductImage={
+            "https://images-na.ssl-images-amazon.com/images/I/81L9f1n4pGL._UL1500_.jpg"
+          }
+          isCartProduct={false}
+          ProductPrice={"441.00"}
+          rating={4}
+        />
+      </div>
+      <div className="home__row">
+        <Product
+          ProductName={
+            "Redgear Cloak Wired RGB Gaming Headphones with Microphone for PC"
+          }
+          ProductImage={
+            "https://images-na.ssl-images-amazon.com/images/I/71L26Qve3jL._SL1500_.jpg"
+          }
+          isCartProduct={false}
+          ProductPrice={"899.00"}
+          rating={4}
+        />
+        <Product
+          ProductName={
+            "Cosmic Byte H11 Gaming Headset with Microphone (Black/Purple)"
+          }
+          ProductImage={
+            "https://images-na.ssl-images-amazon.com/images/I/61FPKvWRQCL._SL1500_.jpg"
+          }
+          isCartProduct={false}
+          ProductPrice={"1049.00"}
+          rating={4}
+        />
+        <Product
+          ProductName={
+            "ASUS VivoBook 14 M409DA-EK146T AMD Quad Core Ryzen 5-3500U 14-inch FHD Compact and Light Laptop "
+          }
+          ProductImage={
+            "https://images-na.ssl-images-amazon.com/images/I/81Bq3kCc6AL._SL1500_.jpg"
+          }
+          isCartProduct={false}
+          ProductPrice={"37591.00"}
+          rating={5}
         />
       </div>
     </div>

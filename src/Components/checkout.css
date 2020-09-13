@@ -25,7 +25,7 @@
 .basket__items {
   display: flex;
   flex-direction: column;
-  /* height: 200px; */
+  min-height: 200px;
 }
 .basket__items img {
   width: 180px;
@@ -35,3 +35,4 @@
     flex-direction: column;
   }
 }
+

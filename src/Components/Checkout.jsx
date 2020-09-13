@@ -17,7 +17,11 @@ function Checkout() {
         <div className="checkout__title">
           <h2>Your Shopping Basket</h2>
         </div>
-        <div className="basket__items">
+        <div
+          className={
+            basket.length == 0 ? "basket__items no__items" : " basket__items"
+          }
+        >
           {basket.map((item) => (
             <>
               <Product

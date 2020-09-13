@@ -48,7 +48,7 @@ function SideBar() {
         <Link to="/checkout">
           <span>
             <i className="fa fa-shopping-basket"></i>
-            <span onClick={handleSidebar}>{basket.length}</span>
+            <span onClick={handleSidebar}>Your Basket</span>
           </span>
         </Link>
       </div>
