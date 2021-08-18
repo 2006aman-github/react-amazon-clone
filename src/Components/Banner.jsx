@@ -1,11 +1,11 @@
-import React from "react";
-import "./banner.css";
+import React from 'react';
+import './banner.css';
 
 function Banner() {
   return (
     <div className="banner">
       <img
-        src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_45M_v2_2x._CB432458382_.jpg"
         alt=""
       />
     </div>

@@ -3,10 +3,12 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  min-height: 60px;
   display: flex;
   align-items: center;
   width: 100% !important;
+  padding: 0.1rem 0;
+  box-sizing: border-box;
+  color: white;
   /* padding-right: 0px; */
 }
 .navbar img {
@@ -16,34 +18,56 @@
   margin-top: 18px;
 }
 .navbar__serach {
-  display: flex;
-  align-items: center;
+  display: grid;
+
+  grid-template-columns: 0.1fr 1fr 0.05fr;
   flex: 1;
-  border-radius: 5px;
-  height: 35px;
-  margin: 0 20px;
   min-width: 50px;
 }
-
-.fa-search {
-  height: 100%;
-  padding: 10px;
+.navbar__serach > span {
   display: grid;
   place-content: center;
-  background-color: #cd9042;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-.navbar__serach input {
-  flex: 1;
-  outline: none;
-  height: 100%;
-  outline: none;
-  padding: 0 15px;
+  align-items: center;
+  grid-auto-flow: column;
+  font-size: 1rem !important;
+  background-color: rgb(192, 192, 192);
+  padding: 0.8em;
+  color: rgb(54, 54, 54);
+  box-sizing: border-box;
+  border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
+}
+.cart__icon {
+  font-size: 1.5rem;
+  height: 100% !important;
+}
+.cart__icon > span {
+  font-size: 1rem;
+}
+.cart__icon:hover {
+  outline: 2px solid white;
+}
+
+.nav__search-btn {
+  grid-column: 3 / 4;
+  padding: 0.8em;
+  display: grid;
+  place-content: center;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 1rem !important;
+  background-color: #cd9042;
+  border: none;
+  color: white;
+}
+.navbar__serach > input {
+  grid: 2 / 3;
+  outline: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  outline: none;
   border: none;
   min-width: 10px;
-  border-bottom-left-radius: 8px;
 }
 .navbar__nav {
   display: flex;
@@ -83,14 +107,12 @@
   margin: 0 10px;
   font-weight: bold;
 }
-.cart__icon i {
-  font-size: 1.2rem;
-}
+
 a {
   text-decoration: none;
   color: #fff;
 }
-.fa-bars,
+.nav__mobile__menu,
 .top_nav div {
   visibility: hidden;
   display: none;
@@ -100,45 +122,79 @@ a {
   align-items: center;
   justify-content: space-between;
 }
+.user__address {
+  display: grid;
+  align-items: center;
+  margin: 0 10px;
+  cursor: pointer;
+  padding: 5px;
+  height: 100%;
+  place-content: center;
+  grid-template-columns: 0.05fr 1fr;
+  flex: 0.2;
+}
+.user__address:hover {
+  outline: 2px solid white;
+}
+.user__address > section {
+  display: grid;
+  place-content: center;
+}
+.user__address > section > span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: grey;
+}
 /* media queries  */
 @media (max-width: 750px) {
   .navbar__nav {
     display: none;
   }
-  .navbar img {
-    margin-right: 2px;
-    width: 50px;
-    height: 100%;
-    margin-top: 2;
-  }
-  .navbar__serach {
-    margin: 5px;
-    /* margin-right: -5px; */
-    width: 97%;
+  .user__address {
+    display: none;
   }
   .navbar {
-    flex-direction: column;
-    align-items: start;
+    display: grid !important;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .navbar img {
+    grid-column: 2 / 1 !important;
+    grid-row: 1 / 2;
+    width: 50px !important;
+    object-fit: contain;
+    margin: 0;
+  }
+  .cart__icon {
+    font-size: 1rem;
+    grid-row: 1 / 2;
+    margin: 0;
+    grid-column: 1 / 2 !important;
+  }
+  .nav__mobile__menu {
+    visibility: visible;
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .navbar__serach {
+    grid-template-columns: 1fr 0.05fr;
+    grid-column: 1 / 4;
+  }
+  .navbar__serach > input {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    grid-column: 1 / 2;
+  }
+  .nav__search-btn {
+    grid-column: 2 / 3;
+  }
+  .navbar__serach > span {
+    display: none;
   }
   .top_nav div {
     display: flex;
     visibility: visible;
-  }
-  .fa-bars {
-    visibility: visible;
-    color: #fff;
-    margin-left: 15px;
-    display: flex;
-  }
-  .top_nav {
-    width: 98%;
-  }
-  .top_nav div i {
-    margin-right: 10px;
-  }
-  .top_nav div {
-    display: flex;
-    align-items: center;
-    /* flex: 1; */
   }
 }

@@ -1,22 +1,17 @@
 .home {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1em;
+  max-width: 100%;
   place-items: center;
   margin-top: -200px;
   width: 100%;
+  padding: 0em 2em;
+  box-sizing: border-box;
   /* border: 1px solid black; */
 }
-.home__row {
-  display: flex;
-  /* flex-direction: column; */
-  /* background-color: #fff; */
-}
-
-@media (max-width: 750px) {
-  .home__row {
-    flex-direction: column;
-    /* margin-top: 200px; */
-  }
+@media (max-width: 700px) {
   .home {
-    margin-top: 0px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
